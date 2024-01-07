@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+echo "stow zsh"
+stow zsh
+echo "stow tmux"
+stow tmux
+echo "stow neovim"
+stow neovim
+echo "stow git"
+stow git
