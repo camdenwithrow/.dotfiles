@@ -32,4 +32,16 @@ export PATH="$HOME/go/bin:$PATH"
 
 alias t="tmux"
 
-eval $(thefuck --alias)
+# Check if we are inside TMUX session
+if [ -z "$TMUX" ]; then
+  # List tmux sessions, returns true if there are any
+  tmux has-session 2>/dev/null
+
+  if [ $? != 0 ]; then
+    # No sessions found, start a new session
+    tmux new-session
+  else
+    # Attach to the existing session
+    tmux attach-session
+  fi
+fi

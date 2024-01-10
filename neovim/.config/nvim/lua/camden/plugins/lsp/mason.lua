@@ -48,7 +48,6 @@ return {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
         "astro",
-        -- "gofmt", -- go formatter
         "golangci-lint", -- go linter
         "templ",
         "isort", -- python formatter
