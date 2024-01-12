@@ -15,6 +15,10 @@ setopt HIST_IGNORE_ALL_DUPS
 # History won't show duplicates on search.
 setopt HIST_FIND_NO_DUPS
 
+# Use history search when scrolling through previous commands
+bindkey '^[[A' history-beginning-search-backward
+bindkey '^[[B' history-beginning-search-forward
+
 # Autoload completion
 autoload -U compinit; compinit
 
