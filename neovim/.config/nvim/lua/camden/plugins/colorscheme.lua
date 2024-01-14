@@ -1,6 +1,6 @@
 return {
   {
-    "camdenwithrow/cams-colors.nvim",
+    "aktersnurra/no-clown-fiesta.nvim",
     -- "kvrohit/mellow.nvim",
     priority = 1000,
     config = function()
