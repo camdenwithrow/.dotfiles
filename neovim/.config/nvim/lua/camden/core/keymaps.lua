@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
----------------------
 -- General Keymaps -------------------
 
 -- use jk to exit insert mode
@@ -22,6 +21,10 @@ keymap.set("n", "<leader>+", "<C-x>", { desc = "Decrement number" }) -- decremen
 -- scroll
 keymap.set("n", "<C-d>", "<C-d>M")
 keymap.set("n", "<C-u>", "<C-u>M")
+
+-- new line normal mode
+keymap.set("n", "<leader>o", "o<ESC>")
+keymap.set("n", "<leader>O", "O<ESC>")
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
