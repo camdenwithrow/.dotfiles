@@ -1,6 +1,6 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-	name = Camden Withrow
-  email = withrowcamden@gmail.com
-  ; email = camdenwithrow@Camdens-MacBook-Pro.local
+name = Camden Withrow
+email = withrowcamden@gmail.com
+; email = camdenwithrow@Camdens-MacBook-Pro.local

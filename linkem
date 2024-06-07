@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-read -p "Personal Box? (Y/N): " confirm 
-
-
 echo "stow zsh"
 stow zsh
 echo "stow tmux"
@@ -14,9 +11,7 @@ stow hammerspoon
 # echo "stow vscode"
 # stow --target="~/Library/Application Support/Code/User/" vscode
 
-if [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]]; then
-	echo "stow git"
-	stow git
-fi
+echo "stow git"
+stow git
 
 
