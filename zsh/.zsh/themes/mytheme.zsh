@@ -27,4 +27,4 @@ function exit_code()
 }
 
 setopt prompt_subst
-prompt='%F{red}$(git_branch_changes)%F{green}[%~]%F{cyan}$(git_branch_name)%f$ '
+prompt='%F{red}$(git_branch_changes)%F{cyan}[%~]%F{magenta}$(git_branch_name)%f$ '

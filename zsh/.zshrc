@@ -36,8 +36,26 @@ export JAVA_HOME=/opt/homebrew/Cellar/openjdk@11/11.0.16.1/libexec/openjdk.jdk/C
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 export PATH="/Users/Library/Python/3.9/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="/usr/bin/sourcekit-lsp:$PATH"
 
 alias t="tmux"
+alias ts="tmux new-session -A -s"
+alias c="code"
+alias cr="code -r ."
+
+# some function aliases
+mkdircd() {
+ mkdir $1 && cd $1
+}
+
+cdw() {
+  cd ~/workspace/$1
+}
+
+export FZF_DEFAULT_COMMAND="fd . $HOME"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+export FZF_TMUX_OPTS="-p80%,60%"
 
 # Check if we are inside TMUX session
 if [ -z "$TMUX" ]; then
@@ -52,3 +70,5 @@ if [ -z "$TMUX" ]; then
     tmux attach-session
   fi
 fi
+
+eval "$(fzf --zsh)"
