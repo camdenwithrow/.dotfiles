@@ -1,0 +1,18 @@
+local module = {}
+module.ARC = "Arc"
+module.ITERM = "iTerm"
+module.SPOTIFY = "Spotify"
+module.CHROME = "Google Chrome"
+module.NOTES = "Notes"
+module.MAIL = "Mail"
+module.OUTLOOK = "Microsoft Outlook"
+module.LINEAR = "Linear"
+module.TICKTICK = "TickTick"
+module.ZOOM = "zoom.us"
+module.SIMULATOR = "Simulator"
+module.XCODE = "Xcode"
+module.RAYCAST = "Raycast"
+module.HAMMERSPOON = "Hammerspoon"
+module.RECTANGLE = "Rectangle"
+module.NOTION = "Notion"
+return module
