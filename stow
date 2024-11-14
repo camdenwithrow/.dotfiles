@@ -11,7 +11,7 @@ stow hammerspoon
 # echo "stow vscode"
 # stow --target="~/Library/Application Support/Code/User/" vscode
 
-echo "stow git"
-stow git
+# echo "stow git"
+# stow git
 
 

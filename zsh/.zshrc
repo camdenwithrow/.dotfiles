@@ -24,6 +24,7 @@ bindkey "^[[B" history-beginning-search-forward-end
 
 # Autoload completion
 autoload -U compinit; compinit
+source ~/.zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 # prompt theme
 source $ZSH/themes/mytheme.zsh
@@ -32,21 +33,21 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export JAVA_HOME=/opt/homebrew/Cellar/openjdk@11/11.0.16.1/libexec/openjdk.jdk/Contents/Home
-export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 export PATH="/Users/Library/Python/3.9/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-export PATH="/usr/bin/sourcekit-lsp:$PATH"
+export PATH="/opt/homebrew/opt/deno/bin:$PATH"
 
-alias t="tmux"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+ eval "$(pyenv init --path)"
+ eval "$(pyenv init -)"
+fi
+alias python=python3
+alias pip=pip3
+
 alias ts="tmux new-session -A -s"
-alias c="code"
-alias cr="code -r ."
-
-# some function aliases
-mkdircd() {
- mkdir $1 && cd $1
-}
+alias c=code
 
 cdw() {
   cd ~/workspace/$1
