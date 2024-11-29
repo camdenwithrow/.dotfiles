@@ -8,10 +8,7 @@ echo "stow neovim"
 stow neovim
 echo "stow hammerspoon"
 stow hammerspoon
+echo "stow wezterm"
+stow wezterm
 # echo "stow vscode"
 # stow --target="~/Library/Application Support/Code/User/" vscode
-
-# echo "stow git"
-# stow git
-
-

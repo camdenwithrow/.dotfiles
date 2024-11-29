@@ -1,6 +1,9 @@
 local module = {}
 module.ARC = "Arc"
+module.ZEN = "Zen Browser"
 module.ITERM = "iTerm"
+module.ALACRITTY = "Alacritty"
+module.WEZTERM = "WezTerm"
 module.SPOTIFY = "Spotify"
 module.CHROME = "Google Chrome"
 module.NOTES = "Notes"

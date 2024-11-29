@@ -12,7 +12,7 @@ module.space = module.PERSONAL
 
 local function _launch(appName)
 	local app = hs.application.find(appName)
-	if app and app:isFrontmost() then
+	if app ~= nil and app:isFrontmost() then
 		local GRID_SIZE = 2
 		hs.grid.setGrid(GRID_SIZE .. "x" .. GRID_SIZE)
 		hs.grid.setMargins({ 0, 0 })
@@ -176,11 +176,11 @@ function module.goToRootDomain()
 end
 
 function module.scrollHalfUp()
-	injectJs("Arc", "window.scrollBy(0, window.screen.height/2);")
+	injectJs("Zen Browser", "window.scrollBy(0, window.screen.height/2);")
 end
 
 function module.scrollHalfDown()
-	injectJs("Arc", "window.scrollBy(0, -window.screen.height/2);")
+	injectJs("Zen Browser", "window.scrollBy(0, -window.screen.height/2);")
 end
 
 function module.lightsOn()

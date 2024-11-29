@@ -1,11 +1,12 @@
 local a = require("actions")
+local apps = require("apps")
 local watcher = require("watcher")
 local vpn = require("vpn")
-local apps = require("apps")
 
-CMD_CTRL = { "cmd", "ctrl" }
-a.modifiers = CMD_CTRL
+a.modifiers = { "cmd", "ctrl" }
 a.space = a.PERSONAL
+local defaultBrowser = apps.ZEN
+local defaultTerminal = apps.WEZTERM
 
 hs.application.enableSpotlightForNameSearches(true)
 
@@ -14,23 +15,20 @@ watcher.startAppWatcher()
 
 local keyBindings = {
 	[a.COMMON] = {
-		{ "W", apps.ARC },
-		{ "E", apps.ITERM },
+		{ "W", defaultBrowser },
+		{ "E", defaultTerminal },
 		{ "M", apps.SPOTIFY },
 		{ "C", apps.CHROME },
 		{ "N", apps.NOTES },
 		{ "I", apps.NOTION },
 		{ "Tab", a.launchLastOpened },
-		{ "S", a.launchSplitFrame(apps.ITERM, apps.ARC) },
-		{ "R", a.reload, { modifiers = { "cmd", "ctrl", "alt", "shift" } } },
-		{ "U", a.scrollHalfUp, { modifiers = { "ctrl" }, apps = { apps.ARC, apps.CHROME } } },
+		{ "S", a.launchSplitFrame(defaultTerminal, defaultBrowser) },
 	},
 	[a.PERSONAL] = {
-		{ "J", apps.LINEAR },
+		-- { "J", apps.LINEAR },
 		{ "T", apps.TICKTICK },
 		{ "O", apps.MAIL },
 		{ "R", a.goToRootDomain },
-		{ "U", a.type("🙏") },
 	},
 	[a.WORK] = {
 		{ "Z", apps.ZOOM },
@@ -41,5 +39,4 @@ local keyBindings = {
 }
 
 a.bindAll(keyBindings)
-
 a.watchAndReload()
