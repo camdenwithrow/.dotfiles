@@ -1,0 +1,47 @@
+#!/bin/bash
+
+if ! command -v fzf &> /dev/null; then
+    echo "fzf and tmux must be installed"
+    exit 1
+fi
+if ! command -v tmux &> /dev/null; then
+    echo "fzf and tmux must be installed"
+    exit 1
+fi
+
+# If arg provided set it to selected
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(fd -u . ~/workspace ~/.dotfiles | fzf)
+fi
+
+# If no file or directory was selected, exit
+if [ -z "$selected" ]; then
+    echo "No file or directory selected"
+    exit 1
+fi
+
+session_name=$(basename "$selected")
+
+# First window: neovim
+tmux new-session -d -s "$session_name";
+tmux new-window -t "$session_name" -n "zsh";
+
+if [ -d "$selected" ]; then
+    tmux send-keys -t "$session_name:1" "cd $selected" C-m;
+    tmux send-keys -t "$session_name:1" "nvim ." C-m;
+    tmux send-keys -t "$session_name:2" "cd $selected" C-m;
+    tmux send-keys -t "$session_name:2" "clear" C-m;
+else
+    tmux send-keys -t "$session_name:1" "cd $(dirname "$selected")" C-m;
+    tmux send-keys -t "$session_name:1" "nvim ." C-m;
+    tmux send-keys -t "$session_name:2" "cd $(dirname "$selected")" C-m;
+    tmux send-keys -t "$session_name:2" "clear" C-m;
+fi
+
+if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$session_name";
+else
+    tmux attach -t "$session_name";
+fi

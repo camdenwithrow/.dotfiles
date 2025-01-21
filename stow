@@ -10,5 +10,7 @@ echo "stow hammerspoon"
 stow hammerspoon
 echo "stow wezterm"
 stow wezterm
+echo "stow scripts"
+stow scripts
 # echo "stow vscode"
 # stow --target="~/Library/Application Support/Code/User/" vscode
